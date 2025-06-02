@@ -5,12 +5,8 @@ dotenv.config();
 import { Kafka } from 'kafkajs';
 import { startWebSocketServer, broadcastBid } from './websocket';
 
-
-
-console.log("the variable is", process.env.USERNAME)
-
 const kafka = new Kafka({
-  clientId: 'bidding-game-consumer',
+  clientId: process.env.CLIENT_ID,
   brokers: [process.env.BOOTSTRAP_SERVERS || ""],
   ssl: true,
   sasl: {
@@ -20,7 +16,7 @@ const kafka = new Kafka({
   },
 });
 
-const consumer = kafka.consumer({ groupId: 'bidding-game-group' });
+const consumer = kafka.consumer({ groupId: process.env.GROUP_ID || "" });
 
 const runConsumer = async () => {
   // Start WebSocket server for broadcasting
