@@ -1,6 +1,4 @@
 // backend/consumer.ts
-import dotenv from 'dotenv';
-dotenv.config();
 
 import { Kafka } from 'kafkajs';
 import { startWebSocketServer, broadcastBid } from './websocket';

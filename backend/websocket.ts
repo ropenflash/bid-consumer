@@ -2,6 +2,9 @@
 import WebSocket from 'ws';
 import http from 'http';
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const server = http.createServer();
 const wss = new WebSocket.Server({ server });
 
