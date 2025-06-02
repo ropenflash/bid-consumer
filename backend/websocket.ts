@@ -31,7 +31,7 @@ export const broadcastBid = (bid: any) => {
 };
 
 export const startWebSocketServer = () => {
-  const port = process.env.PORT || 8080; // Choose your port
+  const port = process.env.PORT; // Choose your port
   server.listen(port, () => {
     console.log(`🚀 WebSocket server running at ws://localhost:${port}`);
   });
